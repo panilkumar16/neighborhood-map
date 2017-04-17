@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>My Neighbourhood Map!</title>
+    <!-- Links for CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/nhm.css">
+  </head>
+
+  <body>
+    <!-- Start Wrapper -->
+    <div id="wrapper">
+      <!-- Start Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav" id="side_bar">
+          <li class="sidebar-brand" style="font-weight: bold; color: #999999;">
+            <b>Locations</b>
+          </li>
+          <br>
+          <input id="search-locations" type="text" placeholder="Search Locations" data-bind="textInput: searchString, valueUpdate: 'afterkeydown'" />
+          <br><br>
+          <ul data-bind="foreach: filteredLocations">
+            <a href="#" data-bind="click: markerClicked">
+              <li data-bind="text: title"></li>
+            </a>
+          </ul>
+        </ul>
+      </div>
+      <!-- End Sidebar -->
+
+      <!-- Start Page Content -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div id="row1" class="row">
+            <div class="col-lg-12">
+              <h4>
+                <a href="#menu-toggle" class="gradient-menu" id="menu-toggle"></a>
+                &nbsp;<b>My Neighbourhood Map!</b>&nbsp;
+              </h4>
+            </div>
+          </div>
+          <div id="row2" class="row">
+            <div class="col-lg-12">
+              <b id="error"></b>
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Page Content -->
+    </div>
+    <!-- End Wrapper -->
+
+    <!-- Required Javascript Libraries -->
+    <!-- Bootstrap first requires jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/knockout-3.4.2.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHUEz2Gw2WL8uh-SpVsDQZdzIXwcXCF64&v=3&callback=initMap" async defer onerror="error()">
+    </script>
+  </body>
+</html>
